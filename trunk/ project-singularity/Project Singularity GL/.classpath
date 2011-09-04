@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry exported="true" kind="lib" path="lib/lwjgl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Project Singularity GL/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/STABERAS/Downloads/slick/slick.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/slick.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jogg-0.0.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jorbis-0.0.15.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/phys2d.jar"/>
+	<classpathentry kind="lib" path="C:/Users/STABERAS/workspace/Project Singularity GL/lib/TWL.jar"/>
+	<classpathentry kind="lib" path="lib/nifty-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/nifty-lwjgl-slick-renderer-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/nifty-style-black-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/xpp3-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="C:/Users/STABERAS/workspace/Project Singularity GL/lib/FengGUI.jar"/>
+	<classpathentry kind="lib" path="C:/Users/STABERAS/workspace/Project Singularity GL/lib/gluegen-rt.jar"/>
+	<classpathentry kind="lib" path="C:/Users/STABERAS/workspace/Project Singularity GL/lib/jogl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/STABERAS/workspace/Project Singularity GL/lib/thingle.jar"/>
+	<classpathentry kind="lib" path="C:/Users/STABERAS/workspace/Project Singularity GL/lib/sui.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/STABERAS/workspace/Project Singularity GL/lib/derby.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/STABERAS/workspace/Project Singularity GL/lib/derbyclient.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/STABERAS/workspace/Project Singularity GL/lib/derbynet.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/STABERAS/workspace/Project Singularity GL/lib/derbyrun.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/STABERAS/workspace/Project Singularity GL/lib/derbytools.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
