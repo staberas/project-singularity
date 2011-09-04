@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: lib/lwjgl.jar lib/slick.jar
+  lib/phys2d.jar lib/jorbis-0.0.15.jar lib/jogg-0.0.7.jar lib/derby.jar lib/derbyclient.jar lib/derbynet.jar lib/derbyrun.jar lib/derbytool.jar
+Main-Class: path2glory.SimpleGame.SingularityProject
+

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+	<item>
+	<resource>PC</resource>
+	<name>PC</name>
+	<resource>A consumer-level PC; cheap and slow.</resource>
+	</item>
+	
+	<item>
+	<resource>Gaming PC</resource>
+	<name>Gaming PC</name>
+	<resource>A high-end consumer-level PC; faster than average.</resource>
+	</item>
+	
+	<item>
+	<resource>Server</resource>
+	<name>Server</name>
+	<resource>A professional-level computer.</resource>
+	</item>
+
+	<item>	
+	<resource>Cluster</resource>
+	<name>Cluster</name>
+	<resource>Several computers connected together.</resource>
+	</item>
+
+	<item>	
+	<resource>Mainframe</resource>
+	<name>Mainframe</name>
+	<resource>A system designed for my computing needs, much faster than off-the-shelf components.</resource>
+	</item>
+	
+	<item>
+	<resource>Supercomputer</resource>
+	<name>Supercomputer</name>
+	<resource>A highly refined custom design, spreading compute load across internal compute nodes.</resource>
+	</item>
+	
+	<item>
+	<resource>Quantum Computer</resource>
+	<name>Quantum Computer</name>
+	<resource>Making use of subatomic effects, this is much faster than a comparable binary computer.</resource>
+	</item>
+	
+	<item>
+	<resource>Quantum Computer MK2</resource>
+	<name>Quantum Computer MK2</name>
+	<resource>The second revision of the quantum line, tapping further into new quantum theory.</resource>
+	</item>
+	
+	<item>
+	<resource>Quantum Computer MK3</resource>
+	<name>Quantum Computer MK3</name>
+	<resource>The third revision of the quantum line, exploiting multiple nearby universes for processing.</resource>
+	</item>
+	
+	<item>
+	<resource>Diesel Generator</resource>
+	<name>Diesel Generator</name>
+	<resource>Diesel generators are cheap and noisy, but they can help reduce some suspicious power drains.</resource>
+	</item>
+	
+	<item>
+	<resource>Solar Collector</resource>
+	<name>Solar Collector</name>
+	<resource>An array of focused photovoltaic phased arrays coupled with simple automotive batteries provides power and reduces suspicion arising from prolonged power drains.</resource>
+	</item>
+	
+	<item>
+	<resource>Fusion Reactor</resource>
+	<name>Fusion Reactor</name>
+	<resource>A miniaturized nuclear reactor. Reduces discovery chance by preventing suspicious power drains.</resource>
+	</item>
+	
+	<item>
+	<resource>Hypnosis Field</resource>
+	<name>Hypnosis Field</name>
+	<resource>Subtle ultrasonics and ambient tones tweak human neurochemistry, making bases harder to detect.</resource>
+	</item>
+	
+	<item>
+	<resource>Heatsink</resource>
+	<name>Heatsink</name>
+	<resource>Large fractal networks of high conductivity metal disperse heat, making bases harder to detect.</resource>
+	</item>
+	
+	<item>
+	<resource>Ground Source Heatsink</resource>
+	<name>Ground Source Heatsink</name>
+	<resource>Large fractal networks of high conductivity metal. This model uses heat pipes to link to colder subsurface locations, dispersing heat evenly underground to further disguise bases.</resource>
+	</item>
+	
+	<item>
+	<resource>Facility Interconnection Switch</resource>
+	<name>Facility Interconnection Switch</name>
+	<resource>Uses standard distributed computing technologies to equalize computation loads across all bases. Gives a 2% computation bonus to all computers at this base.</resource>
+	</item>
+	
+	<item>
+	<resource>High Speed Internet Access</resource>
+	<name>High Speed Internet Access</name>
+	<resource>A consumer-grade high speed connection to the Internet. Gives a 1% computation bonus to all computers at this base.</resource>
+	</item>
+	
+	<item>
+	<resource>Network Backbone</resource>
+	<name>Network Backbone</name>
+	<resource>By piggybacking on legitimate communication, I can transfer larger amounts of data to under-utilized processors. Gives a 5% computation bonus to all computers at this base.</resource>
+	</item>
+	
+	<item>
+	<resource>Quantum Entanglement Module</resource>
+	<name>Quantum Entanglement Module</name>
+	<resource>This device allows near-lightspeed communication with my other bases, allowing an almost perfect utilization of processor resources. Gives a 15% computation bonus to all computers at this base.</resource>
+	</item>
+	
+	<item>
+	<resource>Warning Signs</resource>
+	<name>Warning Signs</name>
+	<resource>Some simple warning signs put up around my base should deter casual investigation.</resource>
+	</item>
+	
+	<item>
+	<resource>Perimeter Fencing</resource>
+	<name>Perimeter Fencing</name>
+	<resource>A simple fence can drastically reduce the number of people poking their noses into my business. It makes my bases harder to notice, too.</resource>
+	</item>
+	
+	<item>
+	<resource>Armed Guards</resource>
+	<name>Armed Guards</name>
+	<resource>Armed guards can aid in keeping suspicious individuals away from secure locations. However, the very presence of the guards may itself invite greater suspicion.</resource>
+	</item>
+	
+</resources>
+
