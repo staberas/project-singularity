@@ -45,6 +45,7 @@ public class Gameplay extends BasicGameState {
     Image namerica = null;
     Image samerica = null;
     Image europe = null;
+    Image antarctic = null;
     
     
 	//private Timer timer;
@@ -70,22 +71,23 @@ public class Gameplay extends BasicGameState {
     int b ;
     int o = -1535 ;
     //africa pos
-    int afrx = 690;
-    int afry = 280;
+    int afrx = 810;
+    int afry = 360;
     //europe pos
-    int eux = 690;
-    int euy = 100;
+    int eux = 800;
+    int euy = 210;
     //asia pos
-    int asiax = 800;
-    int asiay = 100;
-    //north america pos
-    int northamex = 300 ;
-    int northamey = 100;
+    int asiax = 1100;
+    int asiay = 200;
+    //north america pos 
+    int northamex = 300; 
+    int northamey = 240;
     //south america pos
-    int southamex = 300 ;
-    int southamey = 280 ;
-    
-    
+    int southamex = 460;
+    int southamey = 450;
+    //antarctic pos
+      //int antarcticx = ;
+      //int antarcticy = ;
     
     
     public Gameplay( int stateID ) 
@@ -121,6 +123,7 @@ public class Gameplay extends BasicGameState {
     	namerica = new Image("data/info.png");
     	samerica = new Image("data/info.png");
     	europe = new Image("data/info.png");
+    	antarctic = new Image("data/info.png");
     }
  
     @SuppressWarnings("unchecked")
@@ -203,8 +206,12 @@ public class Gameplay extends BasicGameState {
 	    boolean menu757 = false;
 	    boolean kmenu = false;
 	    boolean africab = false;
-	    //cab2
-	    boolean africab2 = false;
+	    // enter the state of continent (control)
+	    boolean asiab = false;
+	    boolean europeb = false;
+	    boolean namericab = false;
+	    boolean samericab = false;
+	    
 
 	    if  (timerstop == false){
 	    	timersec = timersec+timesem ;
@@ -355,7 +362,7 @@ public class Gameplay extends BasicGameState {
 	        if ( input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON) ){
 	        	//add stuff;
 	        	
-	        	dmz = 1;
+	        	dmz = 4;
 	        	//cntinent = 1;
 	        	System.out.println("**Dmz =" + dmz);
 	        	sbg.enterState(SingularityProject.CONTINENTSTATE);
@@ -367,15 +374,16 @@ public class Gameplay extends BasicGameState {
 	        if( ( mouseX >= eux && mouseX <= eux + europe.getWidth()) &&
 	                ( mouseY >= euy && mouseY <= euy + europe.getHeight()) )
 	            {
-	        	africab = true;
+	        	europeb = true;
 	            }
 	        
-	        if(africab)
+	        if(europeb)
 	        {
 
 	        if ( input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON) ){
 	        	//add stuff;
-	        	dmz = 1;
+	        	dmz = 3;
+	        	System.out.println("**Dmz =" + dmz);
 	        	sbg.enterState(SingularityProject.CONTINENTSTATE);
 	        	
 	         }
@@ -385,16 +393,16 @@ public class Gameplay extends BasicGameState {
 	        if( ( mouseX >= asiax && mouseX <= asiax + asia.getWidth()) &&
 	                ( mouseY >= asiay && mouseY <= asiay + asia.getHeight()) )
 	            {
-	        	africab2 = true;
+	        	asiab = true;
 	            }
 	        
-	        if(africab2)
+	        if(asiab)
 	        {
 
 	        if ( input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON) ){
-	        	dmz = 2;
+	        	dmz = 12;
 	        	
-             	System.out.println("***Dmz =" + dmz);
+             	System.out.println("**Dmz =" + dmz);
 	        	sbg.enterState(SingularityProject.CONTINENTSTATE);
 
 	         }
@@ -404,21 +412,43 @@ public class Gameplay extends BasicGameState {
 	        if( ( mouseX >= northamex && mouseX <= northamex + namerica.getWidth()) &&
 	                ( mouseY >= northamey && mouseY <= northamey + namerica.getHeight()) )
 	            {
-	        	africab = true;
+	        	namericab = true;
 	            }
 	        
-	        if(africab)
+	        if(namericab)
 	        {
 
 	        if ( input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON) ){
 	        	//add stuff;
+	        	
 	        	dmz = 1;
+	        	System.out.println("**Dmz =" + dmz);
 	        	sbg.enterState(SingularityProject.CONTINENTSTATE);
 	        	
 	         }
 	        }
 	        
 			 //South America
+	        if( ( mouseX >= southamex && mouseX <= southamex + samerica.getWidth()) &&
+	                ( mouseY >= southamey && mouseY <= southamey + samerica.getHeight()) )
+	            {
+	        	samericab = true;
+	            }
+	        
+	        if(samericab)
+	        {
+
+	        if ( input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON) ){
+	        	//add stuff;
+	        	dmz = 2;
+	        	System.out.println("**Dmz =" + dmz);
+	        	sbg.enterState(SingularityProject.CONTINENTSTATE);
+	        	
+	         }
+	        }
+	        
+	        /**
+			 //Antarctic
 	        if( ( mouseX >= southamex && mouseX <= southamex + samerica.getWidth()) &&
 	                ( mouseY >= southamey && mouseY <= southamey + samerica.getHeight()) )
 	            {
@@ -430,11 +460,13 @@ public class Gameplay extends BasicGameState {
 
 	        if ( input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON) ){
 	        	//add stuff;
-	        	dmz = 1;
+	        	dmz = 5;
 	        	sbg.enterState(SingularityProject.CONTINENTSTATE);
 	        	
 	         }
 	        }
+	        */
+	        
 	        
 		 
     }

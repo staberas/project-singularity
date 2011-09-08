@@ -38,6 +38,8 @@ public class Continent  extends BasicGameState{
 	  static Connection conn;
 	  String  prnt;
 	  String prnt2;
+	  String prnt3;
+	  String prnt4;
 	  Integer choice;
 	  //---------------------
 	  
@@ -133,7 +135,7 @@ public class Continent  extends BasicGameState{
 					        // Statement stmt3 = conn.createStatement();
 					       
 					        
-					        ResultSet rs = stmt2.executeQuery("");
+					        ResultSet rs = stmt2.executeQuery("select NAME from BASES where LOCID=" +choice);
 					        //int num = 0;
 					      
 					        
@@ -151,6 +153,79 @@ public class Continent  extends BasicGameState{
 			      
 			      
 			      }
+			      // queries status & state
+			      
+			      try {
+				        Class.forName(driver);
+				      } catch (java.lang.ClassNotFoundException e) {
+				        e.printStackTrace();
+				      }
+				      try {
+				        conn = DriverManager.getConnection(connectionURL);
+				        //Statement stmt = conn.createStatement();
+				        //stmt.executeUpdate(createString);
+
+
+				        Statement stmt2 = conn.createStatement();
+				        // Statement stmt3 = conn.createStatement();
+				       
+				        
+				        ResultSet rs = stmt2.executeQuery("select STATUS from BASES where LOCID=" +choice);
+				        //int num = 0;
+				      
+				        
+				        
+				        while (rs.next()) {
+				          System.out.println("Text3 " + rs.getString(1));
+				          prnt3 = (rs.getString(1));
+				          int status = Integer.parseInt(prnt3);
+				        }
+				        rs.close();
+
+				 
+				      } catch (Exception e) {
+				        e.printStackTrace();
+				      }
+		      
+				      
+				      try {
+					        Class.forName(driver);
+					      } catch (java.lang.ClassNotFoundException e) {
+					        e.printStackTrace();
+					      }
+					      try {
+					        conn = DriverManager.getConnection(connectionURL);
+					        //Statement stmt = conn.createStatement();
+					        //stmt.executeUpdate(createString);
+
+
+					        Statement stmt2 = conn.createStatement();
+					        // Statement stmt3 = conn.createStatement();
+					       
+					        
+					        ResultSet rs = stmt2.executeQuery("select STATE from BASES where LOCID=" +choice);
+					        //int num = 0;
+					      
+					        
+					        
+					        while (rs.next()) {
+					          System.out.println("Text3 " + rs.getString(1));
+					          prnt4 = (rs.getString(1));
+					          int state = Integer.parseInt(prnt4);
+					        }
+					        rs.close();
+
+					 
+					      } catch (Exception e) {
+					        e.printStackTrace();
+					      }
+			      
+			      
+			      
+			      
+			      
+			      
+			      
 			      
 			}
 			
@@ -176,7 +251,7 @@ public class Continent  extends BasicGameState{
 		public void update(GameContainer gc, StateBasedGame sbg, int delta)
 				throws SlickException {
 			// TODO Auto-generated method stub
-//-------
+            //-------------------
 			if (Gameplay.dmz != 0){
 				
 				qcode = true;
