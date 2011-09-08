@@ -6,7 +6,12 @@ package path2glory.SimpleGame;
 	import org.newdawn.slick.state.*;
 	import javax.swing.*;
 
+	
+	
+	
 import java.awt.*;
+import java.net.URL;
+
 
 	
 	
@@ -26,7 +31,7 @@ import java.awt.*;
 	    public static int xrem;
 	    public static int yrem;
 	    
-	    
+	        
 	    public SingularityProject()
 	    {
 	        super("Project Singularity");
