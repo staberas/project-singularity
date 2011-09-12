@@ -36,11 +36,15 @@ public class Continent  extends BasicGameState{
 	  boolean a = true;
 	  //------------------
 	  static Connection conn;
-	  String  prnt;
+	  String prnt;
 	  String prnt2;
 	  String prnt3;
 	  String prnt4;
+	  String sd[]  = new String[4];  
+	  String andname = " and NAME= ";
 	  Integer choice;
+	  Integer n = 0;
+	  
 	  //---------------------
 	  
 	  
@@ -143,6 +147,13 @@ public class Continent  extends BasicGameState{
 					        while (rs.next()) {
 					          System.out.println("Text2 " + rs.getString(1));
 					          prnt2 = (rs.getString(1));
+					          sd[n++] = prnt2;
+					           if (n == 3 ) {
+					        	   n=0;
+					        	   
+					           }
+					          System.out.println("sd[0] " +sd[0]);
+					          System.out.println("sd[1] " +sd[1]);
 					        }
 					        rs.close();
 
@@ -170,7 +181,7 @@ public class Continent  extends BasicGameState{
 				        // Statement stmt3 = conn.createStatement();
 				       
 				        
-				        ResultSet rs = stmt2.executeQuery("select STATUS from BASES where LOCID=" +choice);
+				        ResultSet rs = stmt2.executeQuery("select STATUS from BASES where LOCID=" +choice +"and NAME= '" +prnt2 +"'");
 				        //int num = 0;
 				      
 				        
@@ -203,13 +214,13 @@ public class Continent  extends BasicGameState{
 					        // Statement stmt3 = conn.createStatement();
 					       
 					        
-					        ResultSet rs = stmt2.executeQuery("select STATE from BASES where LOCID=" +choice);
+					        ResultSet rs = stmt2.executeQuery("select STATE from BASES where LOCID=" +choice +"and NAME= '" +prnt2 +"'");
 					        //int num = 0;
 					      
 					        
 					        
 					        while (rs.next()) {
-					          System.out.println("Text3 " + rs.getString(1));
+					          System.out.println("Text4 " + rs.getString(1));
 					          prnt4 = (rs.getString(1));
 					          int state = Integer.parseInt(prnt4);
 					        }
@@ -230,8 +241,6 @@ public class Continent  extends BasicGameState{
 			}
 			
 			
-			
-			
 	    	String fontPath = "data/Misc-Fixed.ttf";
 	    	UnicodeFont uFont = new UnicodeFont(fontPath , 19, false, false); 
 	    	uFont.addAsciiGlyphs();   
@@ -240,10 +249,21 @@ public class Continent  extends BasicGameState{
 	    	uFont.loadGlyphs();
 	    	 //lol messages
 	    	uFont.drawString(5, 80, "press f1 to go back " );
-	    	uFont.drawString(5, 155, "query result test : " +prnt);
-	    	uFont.drawString(5, 300, "query result test for  : " +prnt2);
-
+	    	uFont.drawString(5, 155, " AREA: " +prnt);
+	    	//uFont.drawString(5, 300, "BASES  : " +prnt2);
+	    	if(sd[0]!=null){ 
+	    	uFont.drawString(5, 330, "sd  " +sd[0]);
+	    	}
+	    	if(sd[1]!=null){ 
+	    	uFont.drawString(5, 350, "sd2 " +sd[1]);
+		}	
+	    	if(sd[2]!=null){
+	    	uFont.drawString(5, 370, "sd2 " +sd[2]);
 		}
+	    	if(sd[3]!=null){
+	    	uFont.drawString(5, 390, "sd2 " +sd[3]);
+	    	}
+	    }
 	 
 		
 		
@@ -263,7 +283,10 @@ public class Continent  extends BasicGameState{
 		    Input input = gc.getInput();	
  		  	   
 		      if(input.isKeyPressed(Input.KEY_F1)){
-				
+				sd[0]=null;
+				sd[1]=null;
+				sd[2]=null;
+				sd[3]=null;
 			    sbg.enterState(SingularityProject.GAMEPLAYSTATE);
 	            // lol = true;
 			      

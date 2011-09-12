@@ -15,8 +15,14 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.Input;
 
 
-public class MainMenu extends BasicGameState{
 
+
+public class MainMenu extends BasicGameState {
+
+	//--nifty stuff
+  
+	 
+	//--
 
    // Image background = null;
     Image startGameOption = null;
