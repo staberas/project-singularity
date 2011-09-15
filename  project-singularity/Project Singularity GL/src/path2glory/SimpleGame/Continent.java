@@ -6,12 +6,16 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 
+import org.newdawn.slick.Color;
+import org.newdawn.slick.ShapeFill;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.UnicodeFont;
 import org.newdawn.slick.font.effects.ColorEffect;
+import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.geom.Shape;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 //new list
@@ -44,7 +48,9 @@ public class Continent  extends BasicGameState{
 	  String andname = " and NAME= ";
 	  Integer choice;
 	  Integer n = 0;
-	  
+	  Integer v[] = new Integer[4];
+	  Integer x[] = new Integer[4];
+	  Integer i = 0;
 	  //---------------------
 	  
 	  
@@ -120,7 +126,7 @@ public class Continent  extends BasicGameState{
 			        e.printStackTrace();
 			      }
 			      
-			      //lol
+			      //bases
 			      
 			      if (a == true){
 
@@ -164,14 +170,17 @@ public class Continent  extends BasicGameState{
 			      
 			      
 			      }
-			      // queries status & state
-			      
+			      // queries status & state -------------------------------------
+			      			
+			      for(i=0; i<4; i++){
+				    		  System.out.println("Status" +i);
 			      try {
 				        Class.forName(driver);
 				      } catch (java.lang.ClassNotFoundException e) {
 				        e.printStackTrace();
 				      }
 				      try {
+
 				        conn = DriverManager.getConnection(connectionURL);
 				        //Statement stmt = conn.createStatement();
 				        //stmt.executeUpdate(createString);
@@ -180,25 +189,35 @@ public class Continent  extends BasicGameState{
 				        Statement stmt2 = conn.createStatement();
 				        // Statement stmt3 = conn.createStatement();
 				       
-				        
-				        ResultSet rs = stmt2.executeQuery("select STATUS from BASES where LOCID=" +choice +"and NAME= '" +prnt2 +"'");
-				        //int num = 0;
+				        String sdalias = sd[i]; 
+				        ResultSet rs = stmt2.executeQuery("select STATUS from BASES where LOCID=" +choice +"and NAME= '" +sdalias +"'");
+				        //int num = 0; prnt2
 				      
-				        
+				         //  if (i == 3 ) {
+				       	//   i=0;
+				        	   
+				        //   }
 				        
 				        while (rs.next()) {
 				          System.out.println("Text3 " + rs.getString(1));
 				          prnt3 = (rs.getString(1));
 				          int status = Integer.parseInt(prnt3);
+				          System.out.println(status);
+				          v[i]=status;
+				         
 				        }
 				        rs.close();
 
-				 
+				    	  
+				    	 
 				      } catch (Exception e) {
 				        e.printStackTrace();
 				      }
 		      
-				      
+			      }
+			      
+			      for(i=0; i<4; i++){
+		    		  System.out.println("State#" +i);
 				      try {
 					        Class.forName(driver);
 					      } catch (java.lang.ClassNotFoundException e) {
@@ -213,8 +232,8 @@ public class Continent  extends BasicGameState{
 					        Statement stmt2 = conn.createStatement();
 					        // Statement stmt3 = conn.createStatement();
 					       
-					        
-					        ResultSet rs = stmt2.executeQuery("select STATE from BASES where LOCID=" +choice +"and NAME= '" +prnt2 +"'");
+					        String sdalias = sd[i]; 
+					        ResultSet rs = stmt2.executeQuery("select STATE from BASES where LOCID=" +choice +"and NAME= '" +sdalias +"'");
 					        //int num = 0;
 					      
 					        
@@ -222,7 +241,9 @@ public class Continent  extends BasicGameState{
 					        while (rs.next()) {
 					          System.out.println("Text4 " + rs.getString(1));
 					          prnt4 = (rs.getString(1));
-					          int state = Integer.parseInt(prnt4);
+					          
+					         int state = Integer.parseInt(prnt4);
+					         x[i]=state;
 					        }
 					        rs.close();
 
@@ -231,7 +252,7 @@ public class Continent  extends BasicGameState{
 					        e.printStackTrace();
 					      }
 			      
-			      
+			      }
 			      
 			      
 			      
@@ -239,8 +260,37 @@ public class Continent  extends BasicGameState{
 			      
 			      
 			}
-			
-			
+				
+		    //colors
+			Color green = new Color(0,255,0);
+			Color red = new Color(255,0,0);
+	        Color blue = new Color(0,0,255);	
+	        //shapes
+		    Shape redf = new Rectangle(100,100,200,300);
+		    g.draw(redf);
+		    //shapes ui		    
+		    g.setColor(Color.white);
+		    g.drawRect(680, 78, 550, 20); 
+		    g.setColor(blue); 
+		    g.fillRect(681, 79, 549, 19);   
+		    
+		    g.setColor(Color.white);
+		    g.drawRect(680, 98, 550, 20);
+		    g.setColor(blue); 
+		    g.fillRect(681, 99, 549, 19); 
+		   	 	    
+		    g.setColor(Color.white);
+		    g.drawRect(680, 118, 550, 20);
+	        g.setColor(blue); 		    
+		    g.fillRect(681, 119, 549, 19); 		    		    
+		    
+		    g.setColor(Color.white);
+		    g.drawRect(680, 138, 550, 20);
+		    g.setColor(blue); 
+		    g.fillRect(681, 139, 549, 19);
+		   
+			//Rectangle(100,100,200,300);
+		
 	    	String fontPath = "data/Misc-Fixed.ttf";
 	    	UnicodeFont uFont = new UnicodeFont(fontPath , 19, false, false); 
 	    	uFont.addAsciiGlyphs();   
@@ -248,20 +298,74 @@ public class Continent  extends BasicGameState{
 	    	uFont.getEffects().add(new ColorEffect(java.awt.Color.WHITE)); 
 	    	uFont.loadGlyphs();
 	    	 //lol messages
-	    	uFont.drawString(5, 80, "press f1 to go back " );
-	    	uFont.drawString(5, 155, " AREA: " +prnt);
+	    	uFont.drawString(90, 8, "press f1 to go back " );
+	    	uFont.drawString(870, 50, " AREA: " +prnt);
 	    	//uFont.drawString(5, 300, "BASES  : " +prnt2);
+	    	
 	    	if(sd[0]!=null){ 
-	    	uFont.drawString(5, 330, "sd  " +sd[0]);
+	    	uFont.drawString(690, 80, "sd  " +sd[0]);
+	    	  //Complete or In Progress notice UI
+	    	  if(v[0]==1){
+		    		uFont.drawString(900, 80, "Complete");
+		      }
+	    	  if(v[0]==0){
+	    		    uFont.drawString(900, 80, "In Progress");
+	    	  }
+	    	  if(x[0]==1){
+		    		uFont.drawString(1120, 80, "Active",green);	
+		      }
+	    	  if(x[0]==0){
+	    		    uFont.drawString(1120, 80, "Sleep",red);
+	    	  }
 	    	}
+	    	
 	    	if(sd[1]!=null){ 
-	    	uFont.drawString(5, 350, "sd2 " +sd[1]);
+	    	uFont.drawString(690, 100, "sd2 " +sd[1]);
+
+	    	if(v[1]==1){
+		    		uFont.drawString(900, 100, "Complete");
+		      }
+	    	  if(v[1]==0){
+	    		    uFont.drawString(900, 100, "In Progress");
+	    	  }
+	    	  if(x[1]==1){
+		    		uFont.drawString(1120, 100, "Active",green);
+		      }
+	    	  if(x[1]==0){
+	    		    uFont.drawString(1120, 100, "Sleep",red);
+	    	  }
 		}	
+	    	
+	    	
 	    	if(sd[2]!=null){
-	    	uFont.drawString(5, 370, "sd2 " +sd[2]);
+	    	uFont.drawString(690, 120, "sd2 " +sd[2]);
+	    	  if(v[2]==1){
+		    		uFont.drawString(900, 120, "Complete");
+		      }
+	    	  if(v[2]==0){
+	    		    uFont.drawString(900, 120, "In Progress");
+	    	  }
+	    	  if(x[2]==1){
+		    		uFont.drawString(1120, 120, "Active",green);
+		      }
+	    	  if(x[2]==0){
+	    		    uFont.drawString(1120, 120, "Sleep",red);
+	    	  }
 		}
 	    	if(sd[3]!=null){
-	    	uFont.drawString(5, 390, "sd2 " +sd[3]);
+	    	uFont.drawString(690, 140, "sd2 " +sd[3]);
+	    	  if(v[3]==1){
+		    		uFont.drawString(900, 140, "Complete");
+		      }
+	    	  if(v[3]==0){
+	    		    uFont.drawString(900, 140, "In Progress");
+	    	  }
+	    	  if(x[3]==1){
+		    		uFont.drawString(1120, 140, "Active",green);
+		      }
+	    	  if(x[3]==0){
+	    		    uFont.drawString(1120, 140, "Sleep",red);
+	    	  }
 	    	}
 	    }
 	 
