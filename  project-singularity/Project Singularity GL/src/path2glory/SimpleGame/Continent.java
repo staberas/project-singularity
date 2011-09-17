@@ -52,8 +52,10 @@ public class Continent  extends BasicGameState{
 	  Integer x[] = new Integer[4];
 	  Integer i = 0;
 	  //---------------------
-	  
-	  
+	  boolean lightblue=false;
+	  boolean lightblue1=false;
+	  boolean lightblue2=false;
+	  boolean lightblue3=false;
 	  // Strings to use as list items
 	  //private static final String[] ITEMS = { "A", "B", "C", "D" };
 	  
@@ -260,33 +262,46 @@ public class Continent  extends BasicGameState{
 			      
 			      
 			}
-				
+			//
+			
 		    //colors
 			Color green = new Color(0,255,0);
 			Color red = new Color(255,0,0);
-	        Color blue = new Color(0,0,255);	
+	        Color light_blue = new Color(150,150,255);	
 	        //shapes
 		    Shape redf = new Rectangle(100,100,200,300);
 		    g.draw(redf);
 		    //shapes ui		    
 		    g.setColor(Color.white);
 		    g.drawRect(680, 78, 550, 20); 
-		    g.setColor(blue); 
+		    g.setColor(Color.blue); 
+		    if(lightblue==true){
+			    g.setColor(light_blue);			    
+		    }
 		    g.fillRect(681, 79, 549, 19);   
 		    
 		    g.setColor(Color.white);
 		    g.drawRect(680, 98, 550, 20);
-		    g.setColor(blue); 
+		    g.setColor(Color.blue);
+		    if(lightblue1==true){
+			    g.setColor(light_blue);			    
+		    }
 		    g.fillRect(681, 99, 549, 19); 
 		   	 	    
 		    g.setColor(Color.white);
 		    g.drawRect(680, 118, 550, 20);
-	        g.setColor(blue); 		    
+	        g.setColor(Color.blue);
+		    if(lightblue2==true){
+			    g.setColor(light_blue);			    
+		    }
 		    g.fillRect(681, 119, 549, 19); 		    		    
 		    
 		    g.setColor(Color.white);
 		    g.drawRect(680, 138, 550, 20);
-		    g.setColor(blue); 
+		    g.setColor(Color.blue);
+		    if(lightblue3==true){
+			    g.setColor(light_blue);			    
+		    }
 		    g.fillRect(681, 139, 549, 19);
 		   
 			//Rectangle(100,100,200,300);
@@ -299,11 +314,13 @@ public class Continent  extends BasicGameState{
 	    	uFont.loadGlyphs();
 	    	 //lol messages
 	    	uFont.drawString(90, 8, "press f1 to go back " );
-	    	uFont.drawString(870, 50, " AREA: " +prnt);
+	    	//AREA
+	    	uFont.drawString(870, 50, "" +prnt);
 	    	//uFont.drawString(5, 300, "BASES  : " +prnt2);
+
 	    	
 	    	if(sd[0]!=null){ 
-	    	uFont.drawString(690, 80, "sd  " +sd[0]);
+	    	  uFont.drawString(690, 80, " " +sd[0]);
 	    	  //Complete or In Progress notice UI
 	    	  if(v[0]==1){
 		    		uFont.drawString(900, 80, "Complete");
@@ -312,15 +329,15 @@ public class Continent  extends BasicGameState{
 	    		    uFont.drawString(900, 80, "In Progress");
 	    	  }
 	    	  if(x[0]==1){
-		    		uFont.drawString(1120, 80, "Active",green);	
+		    		uFont.drawString(1120, 80, "Active",Color.green);	
 		      }
 	    	  if(x[0]==0){
-	    		    uFont.drawString(1120, 80, "Sleep",red);
+	    		    uFont.drawString(1120, 80, "Sleep",Color.red);
 	    	  }
 	    	}
 	    	
 	    	if(sd[1]!=null){ 
-	    	uFont.drawString(690, 100, "sd2 " +sd[1]);
+	    	 uFont.drawString(690, 100, " " +sd[1]);
 
 	    	if(v[1]==1){
 		    		uFont.drawString(900, 100, "Complete");
@@ -329,16 +346,16 @@ public class Continent  extends BasicGameState{
 	    		    uFont.drawString(900, 100, "In Progress");
 	    	  }
 	    	  if(x[1]==1){
-		    		uFont.drawString(1120, 100, "Active",green);
+		    		uFont.drawString(1120, 100, "Active",Color.green);
 		      }
 	    	  if(x[1]==0){
-	    		    uFont.drawString(1120, 100, "Sleep",red);
+	    		    uFont.drawString(1120, 100, "Sleep",Color.red);
 	    	  }
 		}	
 	    	
 	    	
 	    	if(sd[2]!=null){
-	    	uFont.drawString(690, 120, "sd2 " +sd[2]);
+	    	 uFont.drawString(690, 120, " " +sd[2]);
 	    	  if(v[2]==1){
 		    		uFont.drawString(900, 120, "Complete");
 		      }
@@ -346,14 +363,14 @@ public class Continent  extends BasicGameState{
 	    		    uFont.drawString(900, 120, "In Progress");
 	    	  }
 	    	  if(x[2]==1){
-		    		uFont.drawString(1120, 120, "Active",green);
+		    		uFont.drawString(1120, 120, "Active",Color.green);
 		      }
 	    	  if(x[2]==0){
-	    		    uFont.drawString(1120, 120, "Sleep",red);
+	    		    uFont.drawString(1120, 120, "Sleep",Color.red);
 	    	  }
 		}
 	    	if(sd[3]!=null){
-	    	uFont.drawString(690, 140, "sd2 " +sd[3]);
+	    	 uFont.drawString(690, 140, " " +sd[3]);
 	    	  if(v[3]==1){
 		    		uFont.drawString(900, 140, "Complete");
 		      }
@@ -361,10 +378,10 @@ public class Continent  extends BasicGameState{
 	    		    uFont.drawString(900, 140, "In Progress");
 	    	  }
 	    	  if(x[3]==1){
-		    		uFont.drawString(1120, 140, "Active",green);
+		    		uFont.drawString(1120, 140, "Active",Color.green);
 		      }
 	    	  if(x[3]==0){
-	    		    uFont.drawString(1120, 140, "Sleep",red);
+	    		    uFont.drawString(1120, 140, "Sleep",Color.red);
 	    	  }
 	    	}
 	    }
@@ -375,6 +392,11 @@ public class Continent  extends BasicGameState{
 		public void update(GameContainer gc, StateBasedGame sbg, int delta)
 				throws SlickException {
 			// TODO Auto-generated method stub
+			
+		    Input input = gc.getInput();	
+		    int mouseX = input.getMouseX();
+		    int mouseY = input.getMouseY();
+						
             //-------------------
 			if (Gameplay.dmz != 0){
 				
@@ -384,21 +406,67 @@ public class Continent  extends BasicGameState{
 			}
 			//----------
 			
-		    Input input = gc.getInput();	
- 		  	   
+			if(input.isKeyPressed(Input.KEY_F2)){
+				System.out.println("Mouse X & Y  " +mouseX +"  "+mouseY);
+			}
 		      if(input.isKeyPressed(Input.KEY_F1)){
 				sd[0]=null;
 				sd[1]=null;
 				sd[2]=null;
 				sd[3]=null;
 			    sbg.enterState(SingularityProject.GAMEPLAYSTATE);
-	            // lol = true;
-			      
+	            // lol = true;  
+			 }
+			
+		     
+		        //box1 UI
+		        if( ( mouseX >=680  && mouseX <=1227  ) &&
+		                ( mouseY >=79  && mouseY <=98 ))
+		            {
+		        	lightblue=true;		        	      	
+		            }
+		        else{
+		        	lightblue=false;	
+		        }
+		        	//box2 UI
+		        if( ( mouseX >=680  && mouseX <=1227  ) &&
+		                ( mouseY >=100  && mouseY <=119 ))
+		            {
+		        	lightblue1=true;		        	      	
+		            }
+		        else{
+		        	lightblue1=false;	
+		        }
+		         
+		        //box3 UI
+		        if( ( mouseX >=680  && mouseX <=1227  ) &&
+		                ( mouseY >=120  && mouseY <=139 ))
+		            {
+		        	lightblue2=true;		        	      	
+		            }
+		        else{
+		        	lightblue2=false;	
+		        }
+		        
+		        //box4 UI
+		        if( ( mouseX >=680  && mouseX <=1227  ) &&
+		                ( mouseY >=139  && mouseY <=159 ))
+		            {
+		        	lightblue3=true;		        	      	
+		            }
+		        else{
+		        	lightblue3=false;	
+		        }
+		        
+
+		        
 			    
 			 }
-			    
-			    
-			 }
+
+
+
+
+
 			 
 
 			 
