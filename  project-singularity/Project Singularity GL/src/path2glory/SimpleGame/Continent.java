@@ -56,6 +56,11 @@ public class Continent  extends BasicGameState{
 	  boolean lightblue1=false;
 	  boolean lightblue2=false;
 	  boolean lightblue3=false;
+	  boolean permalightblue=false;
+	  boolean permalightblue1=false;
+	  boolean permalightblue2=false;
+	  boolean permalightblue3=false;
+	  
 	  // Strings to use as list items
 	  //private static final String[] ITEMS = { "A", "B", "C", "D" };
 	  
@@ -262,20 +267,40 @@ public class Continent  extends BasicGameState{
 			      
 			      
 			}
-			//
+			//new ufont position
+	    	String fontPath = "data/Misc-Fixed.ttf";
+	    	UnicodeFont uFont = new UnicodeFont(fontPath , 19, false, false); 
+	    	uFont.addAsciiGlyphs();   
+	    	uFont.addGlyphs(400, 600);
+	    	uFont.getEffects().add(new ColorEffect(java.awt.Color.WHITE)); 
+	    	uFont.loadGlyphs();
 			
 		    //colors
 			Color green = new Color(0,255,0);
 			Color red = new Color(255,0,0);
 	        Color light_blue = new Color(150,150,255);	
-	        //shapes
+	        //buttons 
+	        
+	        //open base
+	        g.setColor(Color.white);
+	        g.drawRect(777, 225, 130, 35);
+	        g.setColor(Color.blue);
+	        g.fillRect(778, 226, 129, 34);
+	        uFont.drawString(805, 235, "OPEN BASE");
+	        
+	        
+	        //other shapes
 		    Shape redf = new Rectangle(100,100,200,300);
+		    
 		    g.draw(redf);
 		    //shapes ui		    
 		    g.setColor(Color.white);
 		    g.drawRect(680, 78, 550, 20); 
 		    g.setColor(Color.blue); 
 		    if(lightblue==true){
+			    g.setColor(light_blue);			    
+		    }
+		    if(permalightblue==true){
 			    g.setColor(light_blue);			    
 		    }
 		    g.fillRect(681, 79, 549, 19);   
@@ -286,12 +311,18 @@ public class Continent  extends BasicGameState{
 		    if(lightblue1==true){
 			    g.setColor(light_blue);			    
 		    }
+		    if(permalightblue1==true){
+			    g.setColor(light_blue);			    
+		    }
 		    g.fillRect(681, 99, 549, 19); 
 		   	 	    
 		    g.setColor(Color.white);
 		    g.drawRect(680, 118, 550, 20);
 	        g.setColor(Color.blue);
 		    if(lightblue2==true){
+			    g.setColor(light_blue);			    
+		    }
+		    if(permalightblue2==true){
 			    g.setColor(light_blue);			    
 		    }
 		    g.fillRect(681, 119, 549, 19); 		    		    
@@ -302,16 +333,14 @@ public class Continent  extends BasicGameState{
 		    if(lightblue3==true){
 			    g.setColor(light_blue);			    
 		    }
+		    if(permalightblue3==true){
+			    g.setColor(light_blue);			    
+		    }
 		    g.fillRect(681, 139, 549, 19);
 		   
 			//Rectangle(100,100,200,300);
 		
-	    	String fontPath = "data/Misc-Fixed.ttf";
-	    	UnicodeFont uFont = new UnicodeFont(fontPath , 19, false, false); 
-	    	uFont.addAsciiGlyphs();   
-	    	uFont.addGlyphs(400, 600);
-	    	uFont.getEffects().add(new ColorEffect(java.awt.Color.WHITE)); 
-	    	uFont.loadGlyphs();
+//here ufont old position
 	    	 //lol messages
 	    	uFont.drawString(90, 8, "press f1 to go back " );
 	    	//AREA
@@ -407,7 +436,7 @@ public class Continent  extends BasicGameState{
 			//----------
 			
 			if(input.isKeyPressed(Input.KEY_F2)){
-				System.out.println("Mouse X & Y  " +mouseX +"  "+mouseY);
+				System.out.println("Mouse X " +mouseX +" , Y "+mouseY);
 			}
 		      if(input.isKeyPressed(Input.KEY_F1)){
 				sd[0]=null;
@@ -418,12 +447,20 @@ public class Continent  extends BasicGameState{
 	            // lol = true;  
 			 }
 			
-		     
+	
 		        //box1 UI
 		        if( ( mouseX >=680  && mouseX <=1227  ) &&
 		                ( mouseY >=79  && mouseY <=98 ))
 		            {
-		        	lightblue=true;		        	      	
+		        	lightblue=true;
+		        	//UI selection stuff
+		        	 if(input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){		        		 
+		        		 permalightblue=true;
+		        		 
+		        		 permalightblue1=false;
+		        		 permalightblue2=false;
+		        		 permalightblue3=false;
+		        	 }
 		            }
 		        else{
 		        	lightblue=false;	
@@ -432,7 +469,15 @@ public class Continent  extends BasicGameState{
 		        if( ( mouseX >=680  && mouseX <=1227  ) &&
 		                ( mouseY >=100  && mouseY <=119 ))
 		            {
-		        	lightblue1=true;		        	      	
+		        	lightblue1=true;
+		        	//UI selection stuff
+		        	 if(input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
+		        		 permalightblue1=true;
+		        		 
+		        		 permalightblue=false;
+		        		 permalightblue2=false;
+		        		 permalightblue3=false;
+		        	 }
 		            }
 		        else{
 		        	lightblue1=false;	
@@ -442,7 +487,15 @@ public class Continent  extends BasicGameState{
 		        if( ( mouseX >=680  && mouseX <=1227  ) &&
 		                ( mouseY >=120  && mouseY <=139 ))
 		            {
-		        	lightblue2=true;		        	      	
+		        	lightblue2=true;	
+		        	//UI selection stuff
+		        	 if(input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
+		        		 permalightblue2=true;
+		        		 
+		        		 permalightblue1=false;
+		        		 permalightblue=false;
+		        		 permalightblue3=false;
+		        	 }
 		            }
 		        else{
 		        	lightblue2=false;	
@@ -452,7 +505,15 @@ public class Continent  extends BasicGameState{
 		        if( ( mouseX >=680  && mouseX <=1227  ) &&
 		                ( mouseY >=139  && mouseY <=159 ))
 		            {
-		        	lightblue3=true;		        	      	
+		        	lightblue3=true;
+		        	//UI selection stuff
+		        	 if(input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)){
+		        		 permalightblue3=true;
+		        		 
+		        		 permalightblue1=false;
+		        		 permalightblue2=false;
+		        		 permalightblue=false;
+		        	 }
 		            }
 		        else{
 		        	lightblue3=false;	
