@@ -38,6 +38,7 @@ public class Continent  extends BasicGameState{
 	  int stateID = 4;
 	  boolean qcode= false;
 	  boolean a = true;
+	  boolean go_back=false;
 	  //------------------
 	  static Connection conn;
 	  String prnt;
@@ -279,7 +280,7 @@ public class Continent  extends BasicGameState{
 			Color green = new Color(0,255,0);
 			Color red = new Color(255,0,0);
 	        Color light_blue = new Color(150,150,255);	
-	        //buttons 
+	        //-----------buttons------------- 
 	        
 	        //open base
 	        g.setColor(Color.white);
@@ -287,6 +288,34 @@ public class Continent  extends BasicGameState{
 	        g.setColor(Color.blue);
 	        g.fillRect(778, 226, 129, 34);
 	        uFont.drawString(805, 235, "OPEN BASE");
+	        
+	        //power state
+	        g.setColor(Color.white);
+	        g.drawRect(1006, 225, 130, 35);
+	        g.setColor(Color.blue);
+	        g.fillRect(1007, 226, 129, 34);
+	        uFont.drawString(1029, 235, "POWER STATE");
+	        
+	        //new base
+	        g.setColor(Color.white);
+	        g.drawRect(678, 291, 130, 35);
+	        g.setColor(Color.blue);
+	        g.fillRect(679, 292, 129, 34);
+	        uFont.drawString(712, 301, "NEW BASE");
+	        
+	        //destroy base
+	        g.setColor(Color.white);
+	        g.drawRect(900, 291, 130, 35);
+	        g.setColor(Color.blue);
+	        g.fillRect(901, 292, 129, 34);
+	        uFont.drawString(910, 301, "DESTROY BASE");
+	        
+	        //GO BACK 
+	        g.setColor(Color.white);
+	        g.drawRect(1080, 291, 130, 35);
+	        g.setColor(Color.blue);
+	        g.fillRect(1081, 292, 129, 34);
+	        uFont.drawString(1133, 301, "BACK");
 	        
 	        
 	        //other shapes
@@ -438,7 +467,14 @@ public class Continent  extends BasicGameState{
 			if(input.isKeyPressed(Input.KEY_F2)){
 				System.out.println("Mouse X " +mouseX +" , Y "+mouseY);
 			}
-		      if(input.isKeyPressed(Input.KEY_F1)){
+			//----button go back
+			 if(input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON) && ( mouseX >=1080  && mouseX <=1210  ) && ( mouseY >=292  && mouseY <=326 )){
+				 go_back=true ;
+			 }
+			
+			//---end button back
+		      if(input.isKeyPressed(Input.KEY_F1) || go_back==true){
+		    	go_back=false;  
 				sd[0]=null;
 				sd[1]=null;
 				sd[2]=null;

@@ -26,6 +26,10 @@ package path2glory.SimpleGame;
 	    public static final int OPTIONSTATE            = 2;
 	    public static final int KNOWLEDGESTATE         = 3;
 	    public static final int CONTINENTSTATE         = 4;
+	    public static final int OPENBASESTATE	       = 5;
+	    public static final int NEWBASESTATE		   = 6;
+	    public static final int POWERSTATESTATE		   = 7;    	
+	    public static final int DESTROYBASESTATE	   = 8;
 	    //TO DO main menu change of resolution
 	    public static int xrem;
 	    public static int yrem;
@@ -41,6 +45,10 @@ package path2glory.SimpleGame;
 	        //change niftygui to Knowledges
 	        this.addState(new Knowledges(KNOWLEDGESTATE));
 	        this.addState(new Continent(CONTINENTSTATE));
+	        this.addState(new OpenBase(OPENBASESTATE));
+	        this.addState(new NewBase(NEWBASESTATE));
+	        this.addState(new PowerState(POWERSTATESTATE));
+	        this.addState(new DestroyBase(DESTROYBASESTATE));
 	        this.enterState(MAINMENUSTATE);
 	    }
 	    
@@ -73,6 +81,11 @@ package path2glory.SimpleGame;
 	        this.getState(OPTIONSTATE).init(gameContainer, this);
 	        this.getState(KNOWLEDGESTATE).init(gameContainer, this);
 	        this.getState(CONTINENTSTATE).init(gameContainer, this);
+	        
+	        this.getState(OPENBASESTATE).init(gameContainer, this);
+	        this.getState(NEWBASESTATE).init(gameContainer, this);
+	        this.getState(POWERSTATESTATE).init(gameContainer, this);
+	        this.getState(DESTROYBASESTATE).init(gameContainer, this);
 	    }
 
 	
