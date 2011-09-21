@@ -4,10 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-
-
 import org.newdawn.slick.Color;
-import org.newdawn.slick.ShapeFill;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
@@ -30,14 +27,16 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Continent  extends BasicGameState{
 
-	
+	String changepowerstate = null;
 	public static int xrem;
 	public static int yrem;  
 
 	//-------------------------------------------
 	  int stateID = 4;
 	  boolean qcode= false;
+	  
 	  boolean a = true;
+	  
 	  boolean go_back=false;
 	  //------------------
 	  static Connection conn;
@@ -87,6 +86,7 @@ public class Continent  extends BasicGameState{
 				throws SlickException {
 			// TODO Auto-generated method stub
 			System.out.println("enter conti Dmz =" + Gameplay.dmz);
+
 			
 
 	//	-------------
@@ -164,7 +164,6 @@ public class Continent  extends BasicGameState{
 					          sd[n++] = prnt2;
 					           if (n == 3 ) {
 					        	   n=0;
-					        	   
 					           }
 					          System.out.println("sd[0] " +sd[0]);
 					          System.out.println("sd[1] " +sd[1]);
@@ -261,11 +260,7 @@ public class Continent  extends BasicGameState{
 					      }
 			      
 			      }
-			      
-			      
-			      
-			      
-			      
+			     
 			      
 			}
 			//new ufont position
@@ -276,9 +271,8 @@ public class Continent  extends BasicGameState{
 	    	uFont.getEffects().add(new ColorEffect(java.awt.Color.WHITE)); 
 	    	uFont.loadGlyphs();
 			
-		    //colors
-			Color green = new Color(0,255,0);
-			Color red = new Color(255,0,0);
+		    new Color(0,255,0);
+			new Color(255,0,0);
 	        Color light_blue = new Color(150,150,255);	
 	        //-----------buttons------------- 
 	        
@@ -450,6 +444,9 @@ public class Continent  extends BasicGameState{
 		public void update(GameContainer gc, StateBasedGame sbg, int delta)
 				throws SlickException {
 			// TODO Auto-generated method stub
+			gc.setMinimumLogicUpdateInterval(90);
+			//String changepowerstate = null;
+			
 			
 		    Input input = gc.getInput();	
 		    int mouseX = input.getMouseX();
@@ -471,6 +468,99 @@ public class Continent  extends BasicGameState{
 			 if(input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON) && ( mouseX >=1080  && mouseX <=1210  ) && ( mouseY >=292  && mouseY <=326 )){
 				 go_back=true ;
 			 }
+			 
+			 //-button power state	
+			 	    String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+				    String connectionURL = "jdbc:derby:myDB";
+			 if(input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON) && ( mouseX >=1006  && mouseX <=1136  ) && ( mouseY >=226  && mouseY <=355 )){
+				 System.out.println("In power state ");
+				  //ui selection and change of status in sql table
+
+				    
+				 if(permalightblue==true){
+				//	 System.out.println("x[0] "+ x[0]);
+				//	 System.out.println("x[1] "+ x[1]);			
+					     if(x[0]==0){
+						 changepowerstate = "UPDATE BASES SET STATE=1 WHERE NAME='"+sd[0]+"'";
+						 x[0]=1;
+						 }
+						 //if(x[0]==1)
+					     else{
+						 changepowerstate = "UPDATE BASES SET STATE=0 WHERE NAME='"+sd[0]+"'";
+						 x[0]=0;
+						 }
+					 }	 
+
+				
+				 if(permalightblue1==true){
+					 	 if(x[1]==0){
+						 changepowerstate = "UPDATE BASES SET STATE=0 WHERE NAME='"+sd[1]+"'";
+						 x[1]=1;
+						 }
+						 //if(x[1]==1)
+					 	 else{
+						 changepowerstate = "UPDATE BASES SET STATE=1 WHERE NAME='"+sd[1]+"'";
+						 x[1]=0;
+						 }
+				 }			
+				 if(permalightblue2==true){
+					 	 if(x[2]==0){
+						 changepowerstate = "UPDATE BASES SET STATE=0 WHERE NAME='"+sd[2]+"'";
+						 x[2]=1;
+						 }
+						 //if(x[2]==0)
+						 else{
+						 changepowerstate = "UPDATE BASES SET STATE=1 WHERE NAME='"+sd[2]+"'";
+						 x[2]=0;
+						 } 
+				 }
+				 if(permalightblue3==true){
+					 	 if(x[3]==0){
+						 changepowerstate = "UPDATE BASES SET STATE=0 WHERE NAME='"+sd[3]+"'";
+						 x[3]=1;
+						 }
+						 //if(x[3]==0)
+						 else{
+						 changepowerstate = "UPDATE BASES SET STATE=1 WHERE NAME='"+sd[3]+"'";
+						 x[3]=0;
+						 } 
+				 }
+					 
+				 if(permalightblue || permalightblue1 || permalightblue2 || permalightblue3 != false){
+					 
+					      try {
+					      Class.forName(driver);
+					     }catch (java.lang.ClassNotFoundException e) {
+					        e.printStackTrace();
+					     }
+					      try {
+					      conn = DriverManager.getConnection(connectionURL);
+
+
+					        Statement stmt2 = conn.createStatement();
+
+					        System.out.println("done adding "+changepowerstate);
+					        stmt2.executeUpdate(changepowerstate);
+					     
+
+					     
+					      // while (rs.next()) {
+					        // System.out.println("change state power " + rs.getString(1));
+					         
+
+					        //}
+					         stmt2.close();
+
+					 
+					      } catch (Exception e) {
+					        e.printStackTrace();
+					      } 
+					      
+				 }
+					 
+			 }
+			
+			 
 			
 			//---end button back
 		      if(input.isKeyPressed(Input.KEY_F1) || go_back==true){
@@ -479,6 +569,10 @@ public class Continent  extends BasicGameState{
 				sd[1]=null;
 				sd[2]=null;
 				sd[3]=null;
+			 permalightblue=false;
+       		 permalightblue1=false;
+       		 permalightblue2=false;
+       		 permalightblue3=false;
 			    sbg.enterState(SingularityProject.GAMEPLAYSTATE);
 	            // lol = true;  
 			 }
