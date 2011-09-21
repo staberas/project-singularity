@@ -137,19 +137,19 @@ public class MainMenu extends BasicGameState {
 		// TODO Auto-generated method stub
 	    Input input = gc.getInput();	
 	    
-	    gc.setMinimumLogicUpdateInterval(100);
+	    gc.setMinimumLogicUpdateInterval(20);
 		
 
 		 if(input.isKeyPressed(Input.KEY_1)){
 			
-		     sbg.enterState(SingularityProject.GAMEPLAYSTATE);
-
+	     sbg.enterState(SingularityProject.GAMEPLAYSTATE);
+	     
         		 
 		 }
 		
 		 if(input.isKeyPressed(Input.KEY_2)){
 				
-		     sbg.enterState(SingularityProject.OPTIONSTATE);
+	     sbg.enterState(SingularityProject.OPTIONSTATE);
 	           
 		 }
 		 

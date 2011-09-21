@@ -21,7 +21,7 @@ import org.newdawn.slick.state.StateBasedGame;
 public class Gameplay extends BasicGameState {
  
 	//dmz is value of continent, public static int dmz = 1;
-	
+
 	public static int dmz = 0;
 	public int xvalue = 0;
 	//public static int cntinent = 0 ;
@@ -102,6 +102,7 @@ public class Gameplay extends BasicGameState {
     }
  
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+    	System.out.println("init the background");
         //background image for the game
     	gameback = new Image("data/world.jpg");
     	//menu img
@@ -115,7 +116,7 @@ public class Gameplay extends BasicGameState {
     	uff = new Image("data/uff.png");
     	researchdg = new Image("data/techtree.png");
     	knowledge = new Image("data/knowledge.png");
-    	shadow = new Image("data/shadow.png");
+     	shadow = new Image("data/shadow.png");
     	shadow2 = new Image("data/shadow2.png");
     	//buttons 
     	africa = new Image("data/info.png");
@@ -128,16 +129,20 @@ public class Gameplay extends BasicGameState {
  
     @SuppressWarnings("unchecked")
 	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-    	// render the background
+
+    	
     	gameback.draw(0, 60);
+    	
         shadow.draw((a++), 60);
         shadow2.draw((o++),60);
-    	if (a > b ) {
+    	
+        if (a > b ) {
     	a=0;
     	}
     	if (o == 0){
     	   o = -1536;
     	}
+    	
     	pause.draw(320, 10);
     	play.draw(342, 10);
     	ff.draw(364, 10);
@@ -177,11 +182,15 @@ public class Gameplay extends BasicGameState {
     	uFont.drawString(900, 11, " CASH  :  "+gamecash);
     	uFont.drawString(900, 30, "  CPU  : "+gamecpu);
     	//uFont.drawString(900, 60, "  width  : "+africa.getWidth());
+
     	
     }
  
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
  
+    	
+    	gc.setMinimumLogicUpdateInterval(20);
+    	
         //Dimension d = size();
         w = gameback.getWidth();
         h = gameback.getHeight();
