@@ -36,9 +36,9 @@ public class Gameplay extends BasicGameState {
     Image researchmg = null;
     Image researchdg = null;
     Image knowledge = null;
-    Image shadow = null;
+//    Image shadow = null;
     
-    Image shadow2 = null;
+//    Image shadow2 = null;
     //but
     Image africa = null;
     Image asia = null;
@@ -116,8 +116,8 @@ public class Gameplay extends BasicGameState {
     	uff = new Image("data/uff.png");
     	researchdg = new Image("data/techtree.png");
     	knowledge = new Image("data/knowledge.png");
-     	shadow = new Image("data/shadow.png");
-    	shadow2 = new Image("data/shadow2.png");
+ //	shadow = new Image("data/shadow.png");
+ //	shadow2 = new Image("data/shadow2.png");
     	//buttons 
     	africa = new Image("data/info.png");
     	asia = new Image("data/info.png");
@@ -132,7 +132,7 @@ public class Gameplay extends BasicGameState {
 
     	
     	gameback.draw(0, 60);
-    	
+    	/**
         shadow.draw((a++), 60);
         shadow2.draw((o++),60);
     	
@@ -142,7 +142,7 @@ public class Gameplay extends BasicGameState {
     	if (o == 0){
     	   o = -1536;
     	}
-    	
+    	*/
     	pause.draw(320, 10);
     	play.draw(342, 10);
     	ff.draw(364, 10);
@@ -189,14 +189,14 @@ public class Gameplay extends BasicGameState {
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
  
     	
-    	gc.setMinimumLogicUpdateInterval(20);
+  //  	gc.setMinimumLogicUpdateInterval(20);
     	
         //Dimension d = size();
         w = gameback.getWidth();
         h = gameback.getHeight();
         
-        b = shadow.getWidth();
-       // h = shadow.getHeight();
+  //    b = shadow.getWidth();
+  //    h = shadow.getHeight();
       
 
     	

@@ -169,7 +169,7 @@ public class Continent  extends BasicGameState{
 					          System.out.println("sd[1] " +sd[1]);
 					        }
 					        rs.close();
-
+                           
 					 
 					      } catch (Exception e) {
 					        e.printStackTrace();
@@ -444,7 +444,8 @@ public class Continent  extends BasicGameState{
 		public void update(GameContainer gc, StateBasedGame sbg, int delta)
 				throws SlickException {
 			// TODO Auto-generated method stub
-			gc.setMinimumLogicUpdateInterval(90);
+gc.setMinimumLogicUpdateInterval(30);
+
 			//String changepowerstate = null;
 			
 			
@@ -469,10 +470,19 @@ public class Continent  extends BasicGameState{
 				 go_back=true ;
 			 }
 			 
+			 //---New base button
+			 
+			 if(input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON) && ( mouseX >=679  && mouseX <=809  ) && ( mouseY >=292  && mouseY <=327 )){
+			   sbg.enterState(SingularityProject.NEWBASESTATE);
+			   
+			 }
+			 
+			 //-
+			 
 			 //-button power state	
 			 	    String driver = "org.apache.derby.jdbc.EmbeddedDriver";
 				    String connectionURL = "jdbc:derby:myDB";
-			 if(input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON) && ( mouseX >=1006  && mouseX <=1136  ) && ( mouseY >=226  && mouseY <=355 )){
+			 if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON) && ( mouseX >=1006  && mouseX <=1136  ) && ( mouseY >=226  && mouseY <=355 )){
 				 System.out.println("In power state ");
 				  //ui selection and change of status in sql table
 

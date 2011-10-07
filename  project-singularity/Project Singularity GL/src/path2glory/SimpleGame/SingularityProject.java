@@ -1,9 +1,11 @@
 package path2glory.SimpleGame;
 
-	import org.newdawn.slick.AppGameContainer;
-	import org.newdawn.slick.GameContainer;
-	import org.newdawn.slick.SlickException;
-	import org.newdawn.slick.state.*;
+	import java.net.URL;
+
+import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.state.StateBasedGame;
 
 	
 	/**
@@ -11,13 +13,20 @@ package path2glory.SimpleGame;
 	 * @author Spiegel & staberas
 	 *
 	 */
+
 	public class SingularityProject extends StateBasedGame {
 	 
+		//crap
+	    protected URL getThemeURL() {
+	        return SingularityProject.class.getResource("res/ui/gameui.xml");
+	    }
+		//crap
+	
+		
 		public boolean entering = false;
 
 		
 	    public static final int MAINMENUSTATE          = 0;
-	
 	    public static final int GAMEPLAYSTATE          = 1;
 	    public static final int OPTIONSTATE            = 2;
 	    public static final int KNOWLEDGESTATE         = 3;
@@ -54,8 +63,6 @@ package path2glory.SimpleGame;
 	    public static void main(String[] args) throws SlickException
 	    {
 
-	        
-	    	
 	         AppGameContainer app = new AppGameContainer(new SingularityProject());
 
 	          
