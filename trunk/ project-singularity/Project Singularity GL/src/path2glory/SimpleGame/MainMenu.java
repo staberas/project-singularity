@@ -137,7 +137,7 @@ public class MainMenu extends BasicGameState {
 		// TODO Auto-generated method stub
 	    Input input = gc.getInput();	
 	    
-	    gc.setMinimumLogicUpdateInterval(20);
+	    gc.setMinimumLogicUpdateInterval(100);
 		
 
 		 if(input.isKeyPressed(Input.KEY_1)){

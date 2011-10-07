@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE themes PUBLIC "-//www.matthiasmann.de//TWL-Theme//EN" "http://hg.l33tlabs.org/twl/raw-file/tip/src/de/matthiasmann/twl/theme/theme.dtd">
+
+<themes>
+
+	<theme name="debuggerConsole" ref="dialoglayout">
+		<theme name="scrollpane" ref="scrollpane">
+			<theme name="textarea" ref="textarea">
+			</theme>
+			<theme name="" ref="*" />
+		</theme>
+		<theme name="editfield" ref="editfield">
+			<theme name="" ref="*" />
+		</theme>
+		<theme name="" ref="*" />
+	</theme>
+
+	<theme name="debuggerHelp" ref="resizableframe-title">
+		<theme name="scrollpane" ref="scrollpane">
+			<theme name="textarea" ref="textarea">
+				<param name="images">
+					<map>
+						<param name="ul-bullet">
+							<image>textarea.ul-bullet</image>
+						</param>
+					</map>
+				</param>
+				<theme name="" ref="*" />
+			</theme>
+			<theme name="" ref="*" />
+		</theme>
+	</theme>
+
+	<!-- System Settings -->
+	<theme name="SystemSettings" ref="resizableframe-title">
+		<theme name="dialoglayout" ref="dialoglayout">
+			<theme name="togglebutton" ref="togglebutton"></theme>
+			<theme name="button" ref="button">
+				<param name="alignment">
+					<enum type="alignment">BOTTOM</enum>
+				</param>
+			</theme>
+			<theme name="" ref="*" />
+		</theme>
+		<theme name="" ref="*" />
+	</theme>
+
+	<theme name="GeneralSettings" ref="resizableframe">
+		<theme name="" ref="*" />
+	</theme>
+
+	<theme name="VideoSettings" ref="resizableframe">
+		<theme name="" ref="*" />
+	</theme>
+
+	<theme name="SoundSettings" ref="resizableframe">
+		<theme name="" ref="*" />
+	</theme>
+
+	<theme name="DebugSettings" ref="resizableframe">
+		<theme name="" ref="*" />
+	</theme>
+
+	<theme name="AdvancedSettings" ref="resizableframe">
+		<theme name="" ref="*" />
+	</theme>
+
+</themes>
