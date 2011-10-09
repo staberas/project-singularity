@@ -1,11 +1,13 @@
 package path2glory.SimpleGame;
 
-	import java.net.URL;
+
+
+
+import java.net.URL;
 
 import org.newdawn.slick.AppGameContainer;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.state.StateBasedGame;
 
 	
 	/**
@@ -14,18 +16,22 @@ import org.newdawn.slick.state.StateBasedGame;
 	 *
 	 */
 
-	public class SingularityProject extends StateBasedGame {
-	 
-		//crap
+	public class SingularityProject extends TWLStateBasedGame {
+		
+	    /**
+	     * Implement this method and return the URL for the TWL theme.
+	     * 
+	     * @return the URL for the TWL theme. Must not be null.
+	     */
+	    @Override
 	    protected URL getThemeURL() {
 	        return SingularityProject.class.getResource("res/ui/gameui.xml");
 	    }
-		//crap
-	
+	 
+		private static AppGameContainer app;
 		
 		public boolean entering = false;
-
-		
+	
 	    public static final int MAINMENUSTATE          = 0;
 	    public static final int GAMEPLAYSTATE          = 1;
 	    public static final int OPTIONSTATE            = 2;
@@ -63,19 +69,12 @@ import org.newdawn.slick.state.StateBasedGame;
 	    public static void main(String[] args) throws SlickException
 	    {
 
-	         AppGameContainer app = new AppGameContainer(new SingularityProject());
+	        AppGameContainer app = new AppGameContainer(new SingularityProject());
 
-	          
-	         if (xrem == 0 || yrem == 0 ){ 
-		        	app.setDisplayMode(1536, 900, false); 
-		        	app.start();
-
-	         }
-	         else{
-		         app.setDisplayMode(xrem, yrem, false);
-		         app.start();
-
-	         }
+        	app.setDisplayMode(1536, 900, false); 
+			app.setShowFPS(false);
+			//app.setVerbose(true);
+			app.start();
 	    }
 	
      
@@ -94,6 +93,5 @@ import org.newdawn.slick.state.StateBasedGame;
 	    
 	    }
 
-	
 
 	}

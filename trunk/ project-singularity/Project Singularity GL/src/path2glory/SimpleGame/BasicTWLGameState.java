@@ -1,5 +1,3 @@
-package path2glory.SimpleGame;
-
 /*
  * Copyright (c) 2008-2010, Matthias Mann
  *
@@ -29,6 +27,7 @@ package path2glory.SimpleGame;
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package path2glory.SimpleGame;
 
 import de.matthiasmann.twl.ActionMap;
 import de.matthiasmann.twl.Widget;
@@ -58,9 +57,7 @@ public abstract class BasicTWLGameState extends BasicGameState {
     @Override
     public void enter(GameContainer container, StateBasedGame game) throws SlickException {
         if(rootPane == null) {
-        	 System.out.println("r!");
             createRootPane();
-            
         }
         ((TWLStateBasedGame)game).setRootPane(rootPane);
     }
@@ -77,13 +74,11 @@ public abstract class BasicTWLGameState extends BasicGameState {
      * @see Widget#setTheme(java.lang.String)
      */
     protected void createRootPane() {
-    	System.out.println("create root! ");
         ActionMap actionMap = new ActionMap();
         actionMap.addMapping(this);
 
         rootPane = new RootPane(this);
         rootPane.setTheme("state"+getID());
-        System.out.println("create rootPane! ");
         rootPane.setActionMap(actionMap);
     }
 
@@ -100,4 +95,3 @@ public abstract class BasicTWLGameState extends BasicGameState {
     protected void layoutRootPane() {
     }
 }
-

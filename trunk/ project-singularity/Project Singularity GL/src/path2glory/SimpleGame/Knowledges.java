@@ -22,7 +22,7 @@ import org.newdawn.slick.Input;
 
 
 
-public class Knowledges extends BasicGameState{
+public class Knowledges extends BasicTWLGameState{
 	 
 	  static Connection conn;
 	  String  prnt;

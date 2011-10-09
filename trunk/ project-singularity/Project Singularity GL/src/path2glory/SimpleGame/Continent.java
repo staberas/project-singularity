@@ -25,7 +25,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 
 
-public class Continent  extends BasicGameState{
+public class Continent  extends BasicTWLGameState{
 
 	String changepowerstate = null;
 	public static int xrem;

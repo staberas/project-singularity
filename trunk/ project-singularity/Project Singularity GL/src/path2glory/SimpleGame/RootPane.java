@@ -1,5 +1,3 @@
-package path2glory.SimpleGame;
-
 /*
  * Copyright (c) 2008-2010, Matthias Mann
  *
@@ -29,6 +27,8 @@ package path2glory.SimpleGame;
  * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package path2glory.SimpleGame;
+
 import de.matthiasmann.twl.ActionMap;
 import de.matthiasmann.twl.DesktopArea;
 import de.matthiasmann.twl.Event;
@@ -48,14 +48,11 @@ public class RootPane extends DesktopArea {
 
     public RootPane(BasicTWLGameState state) {
         if (state == null) {
-        	 System.out.println("State! : "+state);
             throw new NullPointerException("state");
         }
         this.state = state;
-        System.out.println("State.this! : "+state);
 
         ActionMap actionMap = getActionMap();
-        System.out.println("Action map!");
         if (actionMap == null) {
             actionMap = new ActionMap();
             setActionMap(actionMap);

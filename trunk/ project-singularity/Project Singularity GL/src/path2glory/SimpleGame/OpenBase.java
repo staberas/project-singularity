@@ -6,7 +6,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class OpenBase extends BasicGameState {
+public class OpenBase extends BasicTWLGameState {
 	
     int stateID = 5;
 

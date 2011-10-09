@@ -18,7 +18,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 
 
-public class Gameplay extends BasicGameState {
+public class Gameplay extends BasicTWLGameState {
  
 	//dmz is value of continent, public static int dmz = 1;
 
