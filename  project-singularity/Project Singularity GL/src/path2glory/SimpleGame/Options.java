@@ -15,7 +15,7 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.Input;
 //import java.io.*;
 
-public class Options extends BasicGameState{
+public class Options extends BasicTWLGameState{
 
 
 public static int xrem;

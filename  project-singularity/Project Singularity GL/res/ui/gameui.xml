@@ -153,12 +153,12 @@
         </select>
     </images>
 
-    <images file="../test/simple.png" format="RGBA">
+    <images file="simple.png" format="RGBA">
         <area name="-borderG" border="3" xywh="60,0,9,9" splitx="L3,R3" splity="T3,B3"/>
         <area name="white" xywh="23,3,1,1"/>
     </images>
 
-    <images file="../test/chaos_sphere_blue_800x600.png" format="RGB" filter="linear">
+    <images file="chaos_sphere_blue_800x600.png" format="RGB" filter="linear">
         <area name="background-image" xywh="*"/>
     </images>
     <images file="icon-gold-star-small.png">
@@ -172,7 +172,7 @@
     </images>
 
 
-    <fontDef name="normal" filename="../test/font.fnt" color="white">
+    <fontDef name="normal" filename="font.fnt" color="white">
         <fontParam if="error" color="red"/>
         <fontParam if="disabled" color="gray"/>
         <fontParam if="textSelection" color="blue"/>
@@ -197,6 +197,12 @@
         <param name="inputMap"><inputMap>-defaultInputMap</inputMap></param>
     </theme>
 
+	    <theme name="state0" ref="-defaults" allowWildcard="true">
+        <param name=""><image>button.*</image></param>
+        <param name="border"><border>background.border</border></param>
+        <param name="textAlignment"><enum type="alignment">center</enum></param>
+    </theme> 
+ 	
     <theme name="button" ref="-defaults" allowWildcard="true">
         <param name=""><image>button.*</image></param>
         <param name="border"><border>background.border</border></param>
@@ -216,7 +222,7 @@
         <param name="border"><border>background.border</border></param>
         <param name="fadeInTime"><int>0</int></param>
         <theme name="label" ref="label">
-            <param name="font"><fontDef filename="../test/font.fnt" color="black"/></param>
+            <param name="font"><fontDef filename="font.fnt" color="black"/></param>
         </theme>
     </theme>
 
